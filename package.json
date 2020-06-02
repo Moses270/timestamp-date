@@ -1,0 +1,37 @@
+{
+  "name": "timestamp-date",
+  "description": "A simple package to convert dates, string dates and timestamps in JavaScript objects to/from JS Date object.",
+  "version": "1.0.1",
+  "main": "index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "test": "mocha --require ts-node/register test/**/*.ts",
+    "deploy": "tsc && node copy && cd dist && npm publish --access=public"
+  },
+  "dependencies": {
+    "date-fns": "^2.14.0",
+    "firebase": "^7.7.0"
+  },
+  "author": {
+    "name": "Moses Godson",
+    "email": "mosesgodson27@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pamlight-db/client-sdk/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pamlight-db/client-sdk"
+  },
+  "homepage": "https://docs.pamlight.com",
+  "keywords": [
+    "timestamp",
+    "js date",
+    "firebase",
+    "timestamp to date",
+    "javascript date",
+    "cloud firestore",
+    "callable functions"
+  ]
+}
