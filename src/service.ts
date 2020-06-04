@@ -1,5 +1,6 @@
 import { TimestampHandler } from './actions/timestamp';
 import { StringDateHandler } from './actions/string';
+import cloneDeep = require('lodash.clonedeep');
 
 import * as firebase from 'firebase/app';
 import 'firebase/app';
@@ -32,18 +33,18 @@ export class TimestampDate {
   }
 
   public parseTimestampToDate<T, R>(data: T): R {
-    return this.tsHandler.parseTimestampToDate(data);
+    return this.tsHandler.parseTimestampToDate(cloneDeep(data));
   }
 
   public parseDateToTimestamp<T, R>(data: T): R {
-    return this.tsHandler.parseDateToTimestamp(data);
+    return this.tsHandler.parseDateToTimestamp(cloneDeep(data));
   }
 
   public parseStringToDate<T, R>(data: T): R {
-    return this.strHandler.parseStringToDate(data);
+    return this.strHandler.parseStringToDate(cloneDeep(data));
   }
 
   public parseDateToString<T, R>(data: T): R {
-    return this.strHandler.parseDateToString(data);
+    return this.strHandler.parseDateToString(cloneDeep(data));
   }
 }

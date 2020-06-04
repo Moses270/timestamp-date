@@ -40,8 +40,8 @@ export class StringDateHandler {
     private checkDateToStringPropertyValue(element: any) {
         if (element) {
             const date = new Date(element);
-            if (isValid(date)) {
-                element = date.toString();
+            if (isValid(date) && element instanceof Date) {
+                element = element.toString();
             } else {
                 element = this.parseDateToString(element);
             }
@@ -56,7 +56,7 @@ export class StringDateHandler {
             if (isValid(date) && typeof element === 'string') {
                 element = date;
             } else {
-                element = this.parseDateToString(element);
+                element = this.parseStringToDate(element);
             }
         }
 
