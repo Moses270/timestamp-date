@@ -1,7 +1,7 @@
 {
   "name": "timestamp-date",
   "description": "A simple package to convert dates, string dates and timestamps in JavaScript objects to/from JS Date object.",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "date-fns": "^2.14.0",
-    "firebase": "^7.7.0"
+    "firebase": "^7.7.0",
+    "lodash.clonedeep": "^4.5.0"
   },
   "author": {
     "name": "Moses Godson",
@@ -18,13 +19,13 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pamlight-db/client-sdk/issues"
+    "url": "https://github.com/Moses270/timestamp-date/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pamlight-db/client-sdk"
+    "url": "git+https://github.com/Moses270/timestamp-date"
   },
-  "homepage": "https://docs.pamlight.com",
+  "homepage": "https://anchorsolutions.nl",
   "keywords": [
     "timestamp",
     "js date",
@@ -33,5 +34,9 @@
     "javascript date",
     "cloud firestore",
     "callable functions"
-  ]
+  ],
+  "devDependencies": {
+    "@types/lodash.clonedeep": "^4.5.6",
+    "fs-extra": "^9.0.0"
+  }
 }
