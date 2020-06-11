@@ -1,4 +1,4 @@
-import { isValid } from 'date-fns';
+import { isValid } from './utils';
 
 import * as firebase from 'firebase/app';
 import 'firebase/app';
@@ -70,7 +70,7 @@ export class TimestampHandler {
     private checkDateTimestampPropertyValue(element: any) {
         if (element) {
             const date = new Date(element);
-            if (isValid(date)) {
+            if (isValid(date) && element instanceof Date) {
                 element = this.dateToTimestamp(date);
             } else {
                 element = this.parseDateToTimestamp(element);
