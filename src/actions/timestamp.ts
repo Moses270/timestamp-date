@@ -1,13 +1,9 @@
+import { Timestamp } from 'src/models/timestamp.model';
 import { isValid } from './utils';
-
-import * as firebase from 'firebase/app';
-import 'firebase/app';
-
-type Timestamp = firebase.firestore.Timestamp;
 
 export class TimestampHandler {
     public getServerTimestamp(): Timestamp {
-        return firebase.firestore.Timestamp.now();
+        return Timestamp.now();
     }
 
     public timestampToDate(timestamp: Timestamp): Date {
@@ -15,7 +11,7 @@ export class TimestampHandler {
     }
 
     public dateToTimestamp(date: Date): Timestamp {
-        return firebase.firestore.Timestamp.fromDate(date);
+        return Timestamp.fromDate(date);
     }
 
     public parseTimestampToDate<T, R>(data: T): R {
@@ -56,8 +52,8 @@ export class TimestampHandler {
 
     private checkTimestampPropertyValue(element: any) {
         if (element) {
-            if ((element._seconds >= 0 || element.seconds >= 0) &&
-                (element._nanoseconds >= 0 || element.nanoseconds >= 0)) {
+            if ((typeof element._seconds === 'number' || typeof element.seconds === 'number') &&
+                (typeof element._nanoseconds === 'number' || typeof element.nanoseconds === 'number')) {
                 element = new Date((element._seconds || element.seconds) * 1000);
             } else {
                 element = this.parseTimestampToDate(element);

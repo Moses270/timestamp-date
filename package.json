@@ -1,7 +1,7 @@
 {
   "name": "timestamp-date",
   "description": "A simple package to convert dates, string dates and timestamps in JavaScript objects to/from JS Date object.",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
@@ -9,8 +9,8 @@
     "deploy": "tsc && node copy && cd dist && npm publish --access=public"
   },
   "dependencies": {
-    "firebase": "^7.7.0",
-    "lodash.clonedeep": "^4.5.0"
+    "lodash.clonedeep": "^4.5.0",
+    "tslib": "^2.3.1"
   },
   "author": {
     "name": "Moses Godson",
