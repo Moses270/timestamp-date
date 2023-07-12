@@ -9,7 +9,7 @@
     "deploy": "tsc && node copy && cd dist && npm publish --access=public"
   },
   "dependencies": {
-    "firebase": "^7.7.0",
+    "firebase": "^10.0.0",
     "lodash.clonedeep": "^4.5.0"
   },
   "author": {
