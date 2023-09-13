@@ -1,21 +1,27 @@
+import { Timestamp } from 'src/models/timestamp.model';
 import { isValid } from './utils';
 
-import * as firebase from 'firebase/app';
-import 'firebase/app';
-
-type Timestamp = firebase.firestore.Timestamp;
-
 export class TimestampHandler {
-    public getServerTimestamp(): Timestamp {
-        return firebase.firestore.Timestamp.now();
+    public getCurrentTimestamp(): Timestamp {
+        const date = new Date();
+        return this.dateToTimestamp(date);
+    }
+
+    public getCurrentDate(): Date {
+        return new Date();
     }
 
     public timestampToDate(timestamp: Timestamp): Date {
-        return timestamp.toDate();
+        return new Date((timestamp._seconds || timestamp.seconds) * 1000);
     }
 
     public dateToTimestamp(date: Date): Timestamp {
-        return firebase.firestore.Timestamp.fromDate(date);
+        return {
+            seconds: parseInt((date.getTime() / 1000).toFixed(2)),
+            _seconds: parseInt((date.getTime() / 1000).toFixed(2)),
+            nanoseconds: 1,
+            _nanoseconds: 1,
+        }
     }
 
     public parseTimestampToDate<T, R>(data: T): R {

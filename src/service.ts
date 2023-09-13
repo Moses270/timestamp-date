@@ -1,11 +1,7 @@
 import { TimestampHandler } from './actions/timestamp';
 import { StringDateHandler } from './actions/string';
-import cloneDeep = require('lodash.clonedeep');
-
-import * as firebase from 'firebase/app';
-import 'firebase/app';
-
-export type Timestamp = firebase.firestore.Timestamp;
+import cloneDeep from 'lodash-es/cloneDeep';
+import { Timestamp } from './models/timestamp.model';
 
 export class TimestampDate {
   private tsHandler: TimestampHandler;
@@ -16,12 +12,12 @@ export class TimestampDate {
     this.strHandler = new StringDateHandler();
   }
 
-  public getServerTimestamp(): Timestamp {
-    return this.tsHandler.getServerTimestamp();
+  public getCurrentTimestamp(): Timestamp {
+    return this.tsHandler.getCurrentTimestamp();
   }
 
-  public getServerDate(): Date {
-    return this.getServerTimestamp().toDate();
+  public getCurrentDate(): Date {
+    return this.tsHandler.getCurrentDate();
   }
 
   public timestampToDate(timestamp: Timestamp): Date {
